@@ -1,0 +1,71 @@
+:root {
+    --body-bg--light: #f5f5f5;
+    --sub-bg--light: #ededed;
+    --sub2-bg--light: #e1e1e1;
+    --sub3-bg--light: #e1e1e1;
+    --main-fg--light: black;
+    --faded-fg--light: grey;
+    --site-color-scheme--light: #2a76b7;
+
+    --body-bg--dark: #262626;
+    --sub-bg--dark: #2e2e2e;
+    --sub2-bg--dark: #1b1b1b;
+    --sub3-bg--dark: #0c0c0c;
+    --main-fg--dark: #bebebe;
+    --faded-fg--dark: grey;
+    --site-color-scheme--dark: #235886;
+
+    color-scheme: light;
+    // Font Colors
+    --main-fg: var(--main-fg--light);
+    --faded-fg: var(--faded-fg--light);
+    // Backgrounds
+    --body-bg: var(--body-bg--light);
+    --sub-bg: var(--sub-bg--light);
+    --sub2-bg: var(--sub2-bg--light);
+    --sub3-bg: var(--sub3-bg--light);
+    // Site style color
+    --site-color-scheme: var(--site-color-scheme--light);
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        color-scheme: dark;
+        --main-fg: var(--main-fg--dark);
+        --faded-fg: var(--faded-fg--dark);
+        --body-bg: var(--body-bg--dark);
+        --sub-bg: var(--sub-bg--dark);
+        --sub2-bg: var(--sub2-bg--dark);
+        --sub3-bg: var(--sub3-bg--dark);
+        --site-color-scheme: var(--site-color-scheme--dark);
+    }
+}
+
+[data-theme=light]:root {
+    color-scheme: light;
+    --main-fg: var(--main-fg--light);
+    --faded-fg: var(--faded-fg--light);
+    --body-bg: var(--body-bg--light);
+    --sub-bg: var(--sub-bg--light);
+    --sub2-bg: var(--sub2-bg--light);
+    --sub3-bg: var(--sub3-bg--light);
+    --site-color-scheme: var(--site-color-scheme--light);
+}
+
+[data-theme=dark]:root {
+    color-scheme: dark;
+    --main-fg: var(--main-fg--dark);
+    --faded-fg: var(--faded-fg--dark);
+    --body-bg: var(--body-bg--dark);
+    --sub-bg: var(--sub-bg--dark);
+    --sub2-bg: var(--sub2-bg--dark);
+    --sub3-bg: var(--sub3-bg--dark);
+    --site-color-scheme: var(--site-color-scheme--dark);
+}
+
+@media only screen and (max-width: 490px) and (max-height: 900px) and (orientation: portrait),
+only screen and (max-height: 490px) and (max-width: 900px) and (orientation: landscape) {
+    :root {
+        --body-bg--dark: black;
+    }
+}

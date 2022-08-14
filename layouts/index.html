@@ -1,0 +1,18 @@
+{{ define "main" }}
+<section class="panel">
+    {{ .Content }}
+</section>
+
+<section class="panel">
+    <h2>Recent Posts</h2>
+    <div class="posts">
+        {{ range ( where .Site.RegularPages "Type" "blog" | first 3 ) }}
+        <article>
+            <a href="{{ .Permalink }}">{{ .Title }}</a>
+        </article>
+        {{ end }}
+    </div>
+    <a href="/blog">More</a>
+</section>
+
+{{ end }}

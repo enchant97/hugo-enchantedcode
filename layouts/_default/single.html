@@ -1,0 +1,42 @@
+{{ define "main" }}
+{{ partial "breadcrumb.html" . }}
+
+<article class="panel post">
+    <header>
+        <h1>{{ .Title }}</h1>
+        <div class="meta">
+            <span>{{ .ReadingTime }} {{ if eq .ReadingTime 1 }} minute {{ else }} minutes {{ end }} read</span>
+            <ul>
+                {{ range (.GetTerms "tags") }}
+                    <li><a href="{{ .Permalink }}">{{ .LinkTitle }}</a></li>
+                {{ end }}
+            </ul>
+        </div>
+        {{.TableOfContents}}
+    </header>
+    <div>
+        {{ .Content }}
+    </div>
+</article>
+
+<div class="panel">
+    {{ $related := .Site.RegularPages.Related . | first 6 }}
+    {{ with $related }}
+    <h2>See Also</h2>
+    <div class="posts">
+        {{ range . }}
+        <article>
+            <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+            <ul>
+                {{ range (.GetTerms "tags") }}
+                    <li><a href="{{ .Permalink }}">{{ .LinkTitle }}</a></li>
+                {{ end }}
+            </ul>
+            <span>{{ .PublishDate }}</span>
+        </article>
+        {{ end }}
+    </div>
+    {{ end }}
+</div>
+
+{{ end }}
