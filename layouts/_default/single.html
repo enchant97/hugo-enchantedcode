@@ -18,7 +18,11 @@
         {{ with $img }}
         <img itemprop="thumnailUrl" class="cover-img" src="{{ .Permalink }}" alt="Cover image for: '{{ $.Title }}'">
         {{ end }}
-        {{.TableOfContents}}
+        <div id="toc-container">
+            <label id="toc-heading" for="toggle-toc">Table Of Contents</label>
+            <input type="checkbox" id="toggle-toc" aria-label="toggle visibility of table of contents">
+            {{.TableOfContents}}
+        </div>
     </header>
     <div itemprop="articleBody">
         {{ .Content }}
@@ -26,9 +30,9 @@
 </article>
 
 <div class="panel">
+    <h2>See Also</h2>
     {{ $related := .Site.RegularPages.Related . | first 6 }}
     {{ with $related }}
-    <h2>See Also</h2>
     <div class="posts">
         {{ range . }}
         <article>
