@@ -1,3 +1,11 @@
+{{ define "main" }}
+{{ partial "breadcrumb.html" . }}
+
+<h1>{{ .Title }}</h1>
+
+{{ .Content }}
+
+{{ if not .Params.disableIndexList }}
 <div>
     {{ range .Pages }}
     <ul>
@@ -5,3 +13,6 @@
     </ul>
     {{ end }}
 </div>
+{{ end }}
+
+{{ end }}
