@@ -8,9 +8,11 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Audiowide&family=Open+Sans&family=Roboto&family=Roboto+Mono&display=swap"
         rel="stylesheet">
-    {{ $options := (dict "targetPath" "static/style.css" "outputStyle" "compressed" "enableSourceMap" (not
+    {{ $options := (dict "targetPath" "style.css" "outputStyle" "compressed" "enableSourceMap" (not
     hugo.IsProduction)) }}
     {{ $sass := resources.Get "sass/main.scss" }}
     {{ $style := $sass | resources.ToCSS $options }}
-    <link rel="stylesheet" href="{{ $style.Permalink }}">
+    <link rel="stylesheet" href="{{ $style.RelPermalink }}">
+    <script src="{{ "js/theme-changer.min.js" | urlize | relURL }}"></script>
+    <script src="{{ "js/script.js" | urlize | relURL }}" defer></script>
 </head>

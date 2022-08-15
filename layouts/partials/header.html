@@ -4,5 +4,8 @@
         {{ range site.Menus.main }}
         <a class="page-link" href="{{ .URL }}">{{ .Name }}</a>
         {{ end }}
+        <button class="hidden" id="theme-toggle-bnt" title="Change The Site Theme">
+            {{ partial "feather_icon" "sun" }}
+        </button>
     </nav>
 </header>
