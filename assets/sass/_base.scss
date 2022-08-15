@@ -18,6 +18,7 @@ body {
 a,
 button,
 div,
+span,
 p,
 ul,
 li,
@@ -387,11 +388,11 @@ footer {
     flex-direction: column;
     gap: 10px;
     text-align: center;
-    margin-top: 50px;
-    padding-top: 10px;
+    margin: 4rem 0 2rem 0;
+    padding-top: .8rem;
     border-top: 1px solid lightgrey;
 
-    h1 {
+    .title {
         font-size: 1.2em;
         margin: 0;
     }

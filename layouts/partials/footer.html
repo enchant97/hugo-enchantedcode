@@ -1,3 +1,7 @@
 <footer>
-
+    <span class="title">{{ site.Title }}</span>
+    <span>&copy; {{ site.Copyright }} {{ now.Format "2006"}}</span>
+    {{ with .OutputFormats.Get "rss" -}}
+    <a href="{{ .Permalink }}">RSS Feed</a>
+    {{ end -}}
 </footer>
