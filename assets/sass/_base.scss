@@ -134,31 +134,6 @@ ul.tag-list.compact {
     padding: 1rem;
 }
 
-pre {
-    overflow-x: auto;
-}
-
-pre.highlight {
-    padding: 8px 12px;
-
-    code {
-        padding: 0;
-    }
-}
-
-code {
-    padding: 1px 5px;
-}
-
-pre.highlight,
-code {
-    font-family: $code-ff;
-    font-weight: bold;
-    font-size: .86rem;
-    border-radius: $border-rad;
-    background-color: var(--sub3-bg);
-}
-
 blockquote {
     color: var(--faded-fg);
     border-left: 6px solid var(--site-color-scheme);
@@ -206,6 +181,63 @@ table {
 
     tbody tr td {
         padding: 8px;
+    }
+}
+
+// Inline code
+code {
+    font-family: $code-ff;
+    background-color: var(--sub3-bg);
+    padding: .2rem .4rem;
+    border-radius: $border-rad;
+}
+
+// Code block style (not syntax colors)
+.highlight table {
+    width: auto;
+}
+
+.highlight {
+    overflow-x: auto;
+}
+
+.highlight code {
+    // resets values set by inline codeblock style
+    background-color: initial;
+    padding: 0;
+}
+
+.highlight,
+.highlight code {
+    font-family: $code-ff;
+    font-weight: bold;
+    font-size: .86rem;
+}
+
+.highlight pre {
+    padding: 1rem;
+    margin: 0;
+}
+
+.highlight .lntd:first-child {
+    user-select: none;
+}
+
+.chroma {
+    border-radius: $border-rad;
+
+    .lntd {
+        vertical-align: top;
+        padding: 0;
+        margin: 0;
+        border: 0;
+    }
+
+    .lntable {
+        border-spacing: 0;
+        padding: 0;
+        margin: 0;
+        border: 0;
     }
 }
 
@@ -317,7 +349,7 @@ img {
     max-height: 0px;
 }
 
-#toggle-toc:checked + #TableOfContents {
+#toggle-toc:checked+#TableOfContents {
     visibility: visible;
     max-height: 400px;
     overflow: auto;

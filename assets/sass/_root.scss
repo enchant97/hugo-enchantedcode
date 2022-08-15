@@ -26,6 +26,7 @@
     --sub3-bg: var(--sub3-bg--light);
     // Site style color
     --site-color-scheme: var(--site-color-scheme--light);
+    @import "syntax/syntax-light";
 }
 
 @media (prefers-color-scheme: dark) {
@@ -38,6 +39,7 @@
         --sub2-bg: var(--sub2-bg--dark);
         --sub3-bg: var(--sub3-bg--dark);
         --site-color-scheme: var(--site-color-scheme--dark);
+        @import "syntax/syntax-dark";
     }
 }
 
@@ -50,6 +52,7 @@
     --sub2-bg: var(--sub2-bg--light);
     --sub3-bg: var(--sub3-bg--light);
     --site-color-scheme: var(--site-color-scheme--light);
+    @import "syntax/syntax-light";
 }
 
 [data-theme=dark]:root {
@@ -61,6 +64,7 @@
     --sub2-bg: var(--sub2-bg--dark);
     --sub3-bg: var(--sub3-bg--dark);
     --site-color-scheme: var(--site-color-scheme--dark);
+    @import "syntax/syntax-dark";
 }
 
 @media only screen and (max-width: 490px) and (max-height: 900px) and (orientation: portrait),
