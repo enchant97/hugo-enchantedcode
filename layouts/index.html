@@ -24,8 +24,12 @@
             </ul>
             <h3 class="header"><a href="{{ .RelPermalink }}" title="{{ .Title }}">{{ .Title | truncate 25 }}</a></h3>
             <p>{{ .Description }}</p>
+            {{ if .PublishDate }}
             <time datetime="{{ .PublishDate }}">{{ .PublishDate.Format "January 2, 2006"
                 }}</time>
+            {{ else }}
+            <time>no date</time>
+            {{ end }}
         </article>
         {{ end }}
     </div>

@@ -48,6 +48,8 @@
             {{ if .PublishDate }}
             <time datetime="{{ .PublishDate }}">{{ .PublishDate.Format "January 2, 2006"
                 }}</time>
+            {{ else }}
+            <time>no date</time>
             {{ end }}
         </article>
         {{ end }}
