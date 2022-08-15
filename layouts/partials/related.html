@@ -1,0 +1,22 @@
+{{ $related := .Site.RegularPages.Related . | first 6 }}
+{{ with $related }}
+<div class="posts">
+    {{ range . }}
+    <article>
+        <ul class="tag-list compact">
+            {{ range (.GetTerms "tags") }}
+            <li><a href="{{ .Permalink }}">{{ .LinkTitle }}</a></li>
+            {{ end }}
+        </ul>
+        <h3 class="header"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+        <p>{{ .Description }}...</p>
+        {{ if .PublishDate }}
+        <time datetime="{{ .PublishDate }}">{{ .PublishDate.Format "January 2, 2006"
+            }}</time>
+        {{ else }}
+        <time>no date</time>
+        {{ end }}
+    </article>
+    {{ end }}
+</div>
+{{ end }}
