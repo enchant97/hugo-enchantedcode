@@ -7,11 +7,12 @@
 </section>
 
 {{ if not .Params.disableIndexList }}
+{{ $paginator := .Paginate (.Pages.ByPublishDate.Reverse) }}
 <section class="panel">
     <h2>Posts</h2>
-
+    {{ template "_internal/pagination.html" . }}
     <div class="posts">
-        {{ range .Pages }}
+        {{ range $paginator.Pages }}
         <article>
             <a class="featured" href="{{ .RelPermalink }}">
                 {{ $img := (.Resources.ByType "image").GetMatch "featured*" }}
@@ -38,7 +39,7 @@
         </article>
         {{ end }}
     </div>
-
+    {{ template "_internal/pagination.html" . }}
 </section>
 {{ end }}
 

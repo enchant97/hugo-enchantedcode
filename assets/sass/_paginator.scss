@@ -1,0 +1,37 @@
+.pagination {
+    list-style-type: none;
+    display: flex;
+    gap: .4rem;
+    justify-content: center;
+
+    li {
+        padding: .5rem 1.2rem;
+        background-color: var(--sub2-bg);
+        border-radius: $border-rad;
+
+        a {
+            color: var(--main-fg);
+        }
+
+        a:hover {
+            cursor: pointer;
+        }
+    }
+
+    li.disabled {
+        user-select: none;
+
+        a {
+            color: var(--faded-fg);
+            cursor: initial;
+        }
+
+        a:hover {
+            text-decoration: none;
+        }
+    }
+
+    li.active {
+        background-color: var(--site-color-scheme);
+    }
+}
