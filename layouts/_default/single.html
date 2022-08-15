@@ -1,20 +1,25 @@
 {{ define "main" }}
 {{ partial "breadcrumb.html" . }}
 
-<article class="panel post">
+<article class="panel post" itemscope itemtype="http://schema.org/BlogPosting">
     <header>
-        <h1>{{ .Title }}</h1>
+        <h1 itemprop="name headline">{{ .Title }}</h1>
         <div class="meta">
+            <time itemprop="datePublished" datetime="{{ .PublishDate }}">{{ .PublishDate.Format "January 2, 2006" }}</time>
             <span>{{ .ReadingTime }} {{ if eq .ReadingTime 1 }} minute {{ else }} minutes {{ end }} read</span>
             <ul>
                 {{ range (.GetTerms "tags") }}
-                    <li><a href="{{ .Permalink }}">{{ .LinkTitle }}</a></li>
+                <li><a href="{{ .Permalink }}">{{ .LinkTitle }}</a></li>
                 {{ end }}
             </ul>
         </div>
+        {{ $img := (.Resources.ByType "image").GetMatch "featured*" }}
+        {{ with $img }}
+        <img itemprop="thumnailUrl" class="cover-img" src="{{ .Permalink }}" alt="Cover image for: '{{ $.Title }}'">
+        {{ end }}
         {{.TableOfContents}}
     </header>
-    <div>
+    <div itemprop="articleBody">
         {{ .Content }}
     </div>
 </article>
@@ -29,7 +34,7 @@
             <a href="{{ .RelPermalink }}">{{ .Title }}</a>
             <ul>
                 {{ range (.GetTerms "tags") }}
-                    <li><a href="{{ .Permalink }}">{{ .LinkTitle }}</a></li>
+                <li><a href="{{ .Permalink }}">{{ .LinkTitle }}</a></li>
                 {{ end }}
             </ul>
             <span>{{ .PublishDate }}</span>

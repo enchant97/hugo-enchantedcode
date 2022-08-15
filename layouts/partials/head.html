@@ -1,6 +1,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ .Title }} | {{ site.Title }}</title>
+    {{ partial "head/seo" . }}
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -11,5 +13,4 @@
     {{ $sass := resources.Get "sass/main.scss" }}
     {{ $style := $sass | resources.ToCSS $options }}
     <link rel="stylesheet" href="{{ $style.Permalink }}">
-    <title>{{ .Title }} | {{ site.Title }}</title>
 </head>
