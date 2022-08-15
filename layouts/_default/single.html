@@ -5,8 +5,10 @@
     <header>
         <h1 itemprop="name headline">{{ .Title }}</h1>
         <div class="meta">
+            {{ if .PublishDate }}
             <time itemprop="datePublished" datetime="{{ .PublishDate }}">{{ .PublishDate.Format "January 2, 2006"
                 }}</time>
+            {{ end }}
             <span>{{ .ReadingTime }} {{ if eq .ReadingTime 1 }} minute {{ else }} minutes {{ end }} read</span>
             <ul class="tag-list">
                 {{ range (.GetTerms "tags") }}
@@ -43,8 +45,10 @@
             </ul>
             <h3 class="header"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
             <p>{{ .Description }}...</p>
+            {{ if .PublishDate }}
             <time datetime="{{ .PublishDate }}">{{ .PublishDate.Format "January 2, 2006"
                 }}</time>
+            {{ end }}
         </article>
         {{ end }}
     </div>

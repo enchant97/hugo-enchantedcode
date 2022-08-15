@@ -8,6 +8,15 @@
     <div class="posts">
         {{ range ( where .Site.RegularPages "Type" "blog" | first 3 ) }}
         <article>
+            <a class="featured" href="{{ .RelPermalink }}">
+                {{ $img := (.Resources.ByType "image").GetMatch "featured*" }}
+                {{ with $img }}
+                <img itemprop="thumnailUrl" class="cover-img" src="{{ .Permalink }}"
+                    alt="Cover image for: '{{ $.Title }}'">
+                {{ else }}
+                <div></div>
+                {{ end }}
+            </a>
             <ul class="tag-list compact">
                 {{ range (.GetTerms "tags") }}
                 <li><a href="{{ .Permalink }}">{{ .LinkTitle }}</a></li>
