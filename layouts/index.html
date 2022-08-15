@@ -6,7 +6,7 @@
 <section class="panel">
     <h2>Recent Posts</h2>
     <div class="posts">
-        {{ range ( where .Site.RegularPages "Type" "blog" | first 3 ) }}
+        {{ range ( where .Site.RegularPages.ByPublishDate.Reverse "Type" "blog" | first 3 ) }}
         <article>
             <a class="featured" href="{{ .RelPermalink }}">
                 {{ $img := (.Resources.ByType "image").GetMatch "featured*" }}
