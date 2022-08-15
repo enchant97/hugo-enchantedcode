@@ -8,7 +8,15 @@
     <div class="posts">
         {{ range ( where .Site.RegularPages "Type" "blog" | first 3 ) }}
         <article>
-            <a href="{{ .Permalink }}">{{ .Title }}</a>
+            <ul class="tag-list compact">
+                {{ range (.GetTerms "tags") }}
+                <li><a href="{{ .Permalink }}">{{ .LinkTitle }}</a></li>
+                {{ end }}
+            </ul>
+            <h3 class="header"><a href="{{ .RelPermalink }}" title="{{ .Title }}">{{ .Title | truncate 25 }}</a></h3>
+            <p>{{ .Description }}</p>
+            <time datetime="{{ .PublishDate }}">{{ .PublishDate.Format "January 2, 2006"
+                }}</time>
         </article>
         {{ end }}
     </div>
