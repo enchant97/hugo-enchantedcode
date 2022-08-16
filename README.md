@@ -11,7 +11,7 @@ The official Enchanted Code Hugo theme. Designed to be uncluttered and optimised
 ## Install
 
 ```
-git submodule add --depth=1 https://github.com/enchant97/hugo-enchantedcode-theme.git themes/enchantedcode
+git submodule add --depth=1 https://github.com/enchant97/hugo-enchantedcode.git themes/enchantedcode
 ```
 
 ## Configure
