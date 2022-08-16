@@ -25,6 +25,7 @@ params:
   SiteIcon: "favicon.ico"
   RecentPostsCount: 6
   RelatedPostsCount: 6
+  RssShowContent: false
 
   # Optional welcome panel on homepage
   WelcomePanel:
