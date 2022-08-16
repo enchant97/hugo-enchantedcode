@@ -1,4 +1,12 @@
 {{ define "main" }}
+{{ if .Site.Params.WelcomePanel }}
+<section class="panel welcome">
+    <img src="{{ .Site.Params.WelcomePanel.Icon | urlize | relURL }}" alt="{{ .Site.Title }} Icon">
+    <h1>{{ .Site.Params.WelcomePanel.Title }}</h1>
+    <p>{{ .Site.Params.WelcomePanel.Description }}</p>
+</section>
+{{ end }}
+
 <section class="panel">
     {{ .Content }}
 </section>

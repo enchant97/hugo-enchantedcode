@@ -137,6 +137,16 @@ ul.tag-list.compact {
     padding: 1rem;
 }
 
+.welcome {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.welcome img {
+    max-width: 30%;
+}
+
 blockquote {
     color: var(--faded-fg);
     border-left: 6px solid var(--site-color-scheme);

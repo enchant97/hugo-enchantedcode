@@ -26,6 +26,12 @@ params:
   RecentPostsCount: 6
   RelatedPostsCount: 6
 
+  # Optional welcome panel on homepage
+  WelcomePanel:
+    Icon: "icon.png"
+    Title: "Welcome To ..."
+    Description: "This is my Amazing Site!"
+
 menu:
   main:
     - Name: "Blog"
