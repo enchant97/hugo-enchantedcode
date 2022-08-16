@@ -1,0 +1,30 @@
+{{ $posts := .Site.RegularPages.ByPublishDate.Reverse | first .Site.Params.RecentPostsCount }}
+{{ with $posts }}
+<div class="posts">
+    {{ range . }}
+    <article>
+        <a class="featured" href="{{ .RelPermalink }}">
+            {{ $img := (.Resources.ByType "image").GetMatch "featured*" }}
+            {{ with $img }}
+            <img itemprop="thumnailUrl" class="cover-img" src="{{ .Permalink }}" alt="Cover image for: '{{ $.Title }}'">
+            {{ else }}
+            <div></div>
+            {{ end }}
+        </a>
+        <ul class="tag-list compact">
+            {{ range (.GetTerms "tags") }}
+            <li><a href="{{ .Permalink }}">{{ .LinkTitle }}</a></li>
+            {{ end }}
+        </ul>
+        <h3 class="header"><a href="{{ .RelPermalink }}" title="{{ .Title }}">{{ .Title | truncate 25 }}</a></h3>
+        <p>{{ .Description }}</p>
+        {{ if .PublishDate }}
+        <time datetime="{{ .PublishDate }}">{{ .PublishDate.Format "January 2, 2006"
+            }}</time>
+        {{ else }}
+        <time>no date</time>
+        {{ end }}
+    </article>
+    {{ end }}
+</div>
+{{ end }}

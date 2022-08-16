@@ -2,6 +2,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ .Title }} | {{ site.Title }}</title>
+    <link rel="shortcut icon" href="{{ .Site.Params.SiteIcon | urlize | relURL  }}">
     {{ partial "head/seo" . }}
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

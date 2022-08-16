@@ -1,4 +1,4 @@
-{{ $related := .Site.RegularPages.Related . | first 6 }}
+{{ $related := .Site.RegularPages.Related . | first .Site.Params.RelatedPostsCount }}
 {{ with $related }}
 <div class="posts">
     {{ range . }}
