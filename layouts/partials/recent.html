@@ -4,12 +4,7 @@
     {{ range . }}
     <article>
         <a class="featured" href="{{ .RelPermalink }}">
-            {{ $img := (.Resources.ByType "image").GetMatch "featured*" }}
-            {{ with $img }}
-            <img itemprop="thumnailUrl" class="cover-img" src="{{ .Permalink }}" alt="Cover image for: '{{ $.Title }}'">
-            {{ else }}
-            <div></div>
-            {{ end }}
+            {{ partial "featured_img.html" . }}
         </a>
         <ul class="tag-list compact">
             {{ range (.GetTerms "tags") }}

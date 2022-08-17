@@ -16,10 +16,7 @@
                 {{ end }}
             </ul>
         </div>
-        {{ $img := (.Resources.ByType "image").GetMatch "featured*" }}
-        {{ with $img }}
-        <img itemprop="thumnailUrl" class="cover-img" src="{{ .Permalink }}" alt="Cover image for: '{{ $.Title }}'">
-        {{ end }}
+        {{ partial "featured_img.html" . }}
         <div id="toc-container">
             <label id="toc-heading" for="toggle-toc">Table Of Contents</label>
             <input type="checkbox" id="toggle-toc" aria-label="toggle visibility of table of contents">
