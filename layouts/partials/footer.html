@@ -4,4 +4,8 @@
     {{ with .OutputFormats.Get "rss" -}}
     <a href="{{ .Permalink }}">Filtered RSS Feed</a>
     {{ end -}}
+    {{ if .Site.Params.ShowPoweredBy -}}
+    <span>Powered by <a href="https://gohugo.io/">Hugo</a>, using the <a
+            href="https://github.com/enchant97/hugo-enchantedcode">EnchantedCode</a> theme</span>
+    {{ end -}}
 </footer>
