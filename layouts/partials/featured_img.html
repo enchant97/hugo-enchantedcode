@@ -1,8 +1,8 @@
 {{ $img := (.Resources.ByType "image").GetMatch "featured*" }}
 {{ if $img }}
-<img itemprop="thumnailUrl" class="cover-img" src="{{ $img.RelPermalink }}" alt="Cover image for: '{{ .Title }}'">
+<img itemprop="image" class="cover-img" src="{{ $img.RelPermalink }}" alt="Cover image for: '{{ .Title }}'">
 {{ else if .Params.FeaturedImage }}
-<img itemprop="thumnailUrl" class="cover-img" src="{{ .Params.FeaturedImage }}" alt="Cover image for: '{{ .Title }}'">
+<img itemprop="image" class="cover-img" src="{{ .Params.FeaturedImage }}" alt="Cover image for: '{{ .Title }}'">
 {{ else }}
 <div></div>
 {{ end }}
