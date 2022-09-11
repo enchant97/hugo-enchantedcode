@@ -4,6 +4,7 @@
     <title>{{ .Title }} | {{ site.Title }}</title>
     <link rel="shortcut icon" href="{{ .Site.Params.SiteIcon | urlize | relURL  }}">
     {{ partial "head/seo" . }}
+    {{ partial "head/extra-top" . }}
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -16,4 +17,5 @@
     <link rel="stylesheet" href="{{ $style.RelPermalink }}">
     <script src="{{ "js/theme-changer.min.js" | urlize | relURL }}"></script>
     <script src="{{ "js/script.js" | urlize | relURL }}" defer></script>
+    {{ partial "head/extra-end" . }}
 </head>
